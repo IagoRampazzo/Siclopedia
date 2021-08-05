@@ -1,22 +1,17 @@
-$primary: #3F51B5;
-$dark-primary: #303F9F;
+$primary: #544e6aff;
+$dark-primary: #403a4bff;
+$black-primary: #2c262cff;
 $light-primary: #C5CAE9;
+$light-2-primary: #e9f1f7ff;
 $text: #FFFFFF;
 $primary-text: #212121;
 $secondary-text: #757575;
-$accent: #FF4081;
-
-/* ---------------------------------------------------------*/
-$raisin-black: #2c262cff;
-$dark-liver: #403a4bff;
-$independence: #544e6aff;
 $slate-gray: #6b818cff;
-$alice-blue: #e9f1f7ff;
 $lavender-blush: #eee5e9ff;
-$medium-aquamarine: #5dd39eff;
-$red-salsa: #f93943ff;
-$mustard: #fcd757ff;
-$radical-red: #ff4365ff;
+$accent: #fcd757ff;
+$accent-2: #ff4365ff;
+$accent-2-dark: #f93943ff;
+$accent-3: #5dd39eff;
 
 section {
   padding: 6rem 0;
@@ -30,7 +25,7 @@ body {
   font-family: 'Roboto';
   font-size: 1rem;
   font-weight: 400;
-  background-color: #eee;
+  background-color: $light-2-primary;
 }
 
 h1 {
@@ -42,7 +37,7 @@ h1 {
 header {
 	background: $primary;
 	color: $text;
-	padding: 7rem 0;
+	padding: 3rem 0;
 	vertical-align: middle;
 
 	h1{
@@ -55,6 +50,11 @@ header {
 		margin-bottom: 0;
 		font-size: 2.5rem;
 		margin-top: -1rem;
+	}
+
+	img{
+		border: 5px solid $dark-primary;
+		box-shadow: inset 0px 0px 0px 10px $dark-primary;
 	}
 }
 
@@ -153,9 +153,10 @@ a {
 	display: inline-block;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .6);
+	text-decoration: none;
 
 	&:hover, &:active, &:focus {
-		background: darken($primary, 10%);
+		background: $dark-primary;
 		color: $text;
 		text-decoration: none;
 	}
@@ -163,10 +164,11 @@ a {
 }
 
 .timeline-card {
-	padding: 0!important;
+	padding: 0 0 1em 0 !important;
 
 	p {
 		padding: 0 20px;
+		text-align: justify;
 	}
 
 	a {
@@ -182,7 +184,6 @@ a {
 }
 
 .timeline-img-header {
-
 	height: 200px;
 	position: relative;
 	margin-bottom: 20px;
@@ -195,10 +196,41 @@ a {
 	}
 }
 
+
+.timeline-img-container {
+	position: relative;
+	text-align: center;
+	color: white;
+	margin-bottom: 20px;
+	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4));
+	background-size: cover;
+	display: inline-block;
+
+	&::before{
+		content: '';
+		position: absolute;
+		left:0; top:0;
+		width:100%; height:100%;
+		display: inline-block;
+		background: linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0, .4) 100%);
+	  }
+
+	img {
+		width: 100%;
+		display: block;
+	}
+
+	.header-title{
+		position: absolute;
+		bottom: 8px;
+		left: 16px;
+	}
+}
+
 blockquote {
 	margin-top: 30px;
 	color: $secondary-text;
-	border-left-color: $primary;
+	border-left: 5px solid $primary;
 	padding: 0 20px;
 }
 
@@ -206,10 +238,11 @@ blockquote {
 	background: $accent;
 	display: inline-block;
 	color: $text;
-	padding: 10px;
+	padding: 0.5rem;
 	position: absolute;
 	top: 0;
 	right: 0;
+	font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {
@@ -236,7 +269,6 @@ blockquote {
 
 				.timeline-content {
 					float: none;
-
 				}
 			}
 
