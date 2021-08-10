@@ -1,5 +1,5 @@
 section.timeline {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 html, body {
@@ -15,33 +15,63 @@ body {
 
 h1 {
   font-size: 200%;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   font-weight: 400;
 }
 
 header {
-  background: #544e6aff;
   color: #FFFFFF;
-  padding: 3rem 0;
   vertical-align: middle;
+  height: 15rem;
 }
 
-header h1 {
-  font-size: 4rem;
+header .container {
+  z-index: 1;
+  position: fixed;
+  background: #544e6aff;
+  max-width: 100% !important;
+  padding: 0.6em;
+  font-size: 1.5rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  -webkit-box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
 }
 
-header p {
+header .profile-name {
+  position: relative;
+  letter-spacing: 2px;
+  font-size: 2.3em;
+}
+
+header .born-date {
   font-family: 'Allura';
   color: rgba(255, 255, 255, 0.2);
-  margin-bottom: 0;
-  font-size: 2.5rem;
-  margin-top: -1rem;
+  position: relative;
+  font-size: 2.3em;
 }
 
 header img {
-  border: 5px solid #403a4bff;
+  border: 0.3em solid #403a4bff;
   -webkit-box-shadow: inset 0px 0px 0px 10px #403a4bff;
           box-shadow: inset 0px 0px 0px 10px #403a4bff;
+}
+
+header .header-title {
+  text-align: left;
+}
+
+header .date-title {
+  text-align: right;
+}
+
+.middle {
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 .timeline {
@@ -87,7 +117,7 @@ header img {
   top: 30px;
   left: -15px;
   border-width: 10px 15px 10px 0;
-  border-color: transparent #f5f5f5 transparent transparent;
+  border-color: transparent #C5CAE9 transparent transparent;
 }
 
 .timeline-item::after {
@@ -115,7 +145,11 @@ header img {
   top: 30px;
   right: -15px;
   border-width: 10px 0 10px 15px;
-  border-color: transparent transparent transparent #f5f5f5;
+  border-color: transparent transparent transparent #C5CAE9;
+}
+
+.timeline-content p {
+  text-align: justify;
 }
 
 .personal .timeline-content, .personal .header-title {
@@ -180,7 +214,6 @@ a:hover, a:active, a:focus {
 
 .timeline-card p {
   padding: 0 20px;
-  text-align: justify;
 }
 
 .timeline-card a {
@@ -282,7 +315,7 @@ blockquote {
     top: 30px;
     left: -15px;
     border-width: 10px 15px 10px 0;
-    border-color: transparent #f5f5f5 transparent transparent;
+    border-color: transparent #C5CAE9 transparent transparent;
   }
 }
 
@@ -498,8 +531,8 @@ blockquote {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all .4s;
+  transition: all .4s;
   font-weight: 400;
 }
 
@@ -536,8 +569,8 @@ blockquote {
 }
 
 .ul.ks-cboxtags .li input[type="checkbox"]:checked + label {
-  -webkit-transition: all .2s;
-  transition: all .2s;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 .ul.ks-cboxtags .li input[type="checkbox"] {
