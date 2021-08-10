@@ -12,8 +12,12 @@ $accent: #fcd757ff;
 $accent-2: #ff4365ff;
 $accent-2-dark: #f93943ff;
 $accent-3: #5dd39eff;
+$accent-4: #b4e1ff;
+$accent-5: #AF469A;
+$accent-6: #5f7fff;
+$accent-7: #FFA560;
 
-section {
+section.timeline {
   padding: 6rem 0;
 }
 
@@ -77,6 +81,10 @@ header {
 	width: 100%;
 	margin-bottom: 70px;
 
+	opacity: 1;
+	max-height: 40rem;
+	transition: max-height 1s ease-out, opacity 2s linear;
+
 	&:nth-child(even) {
 
 		.timeline-content {
@@ -131,6 +139,25 @@ header {
 	}
 }
 
+.personal .timeline-content, .personal .header-title{
+	border-bottom: 5px solid $accent-2;
+}
+.studies .timeline-content, .studies .header-title{
+	border-bottom: 5px solid $accent-3;
+}
+.sports .timeline-content, .sports .header-title{
+	border-bottom: 5px solid $accent-4;
+}
+.professional .timeline-content, .professional .header-title{
+	border-bottom: 5px solid $accent-5;
+}
+.meme .timeline-content, .meme .header-title{
+	border-bottom: 5px solid $accent-6;
+}
+.family .timeline-content, .family .header-title{
+	border-bottom: 5px solid $accent-7;
+}
+
 .timeline-img {
 	width: 30px;
 	height: 30px;
@@ -165,12 +192,10 @@ a {
 
 .timeline-card {
 	padding: 0 0 1em 0 !important;
-
 	p {
 		padding: 0 20px;
 		text-align: justify;
 	}
-
 	a {
 		margin-left: 20px;
 	}
@@ -293,4 +318,338 @@ blockquote {
 		}
 	}
 	
+}
+
+// ***************** MENU **********************
+// this -- well, because this.
+* {
+	box-sizing:border-box;
+}
+
+// this makes a basic circle
+@mixin circle($param) {
+	width:$param;
+	height:$param;
+	border-radius:50%;
+}
+
+// Brand Colour Palette
+$purple:#462882;
+$green:#1ef0a0;
+$blue:#4644fd;
+$red:#ff3c4b;
+
+// this is what I use to place the menu thing wherever I want
+.menu-container {
+	position: fixed;
+	bottom:1em;
+	right:1em;
+	z-index: 1;
+}
+
+// this toggles the whole damn thing
+.menu-toggle {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background-color: $accent;
+	box-shadow:4px 4px 2px 1px rgba(#000, 0.2);
+	
+	position: absolute;
+	z-index:5;
+	bottom:0;
+	right:0;
+	display:table;
+	
+	text-align: center;
+	
+	.fa {
+		color:#fff;
+		font-size:2em;
+		display:table-cell;
+		vertical-align:middle;
+		transition:0.4s;
+	}
+	
+	// Twist the plus so it looks like a close 'x'
+	&.open .fa {
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+	}
+
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+// Single Template buttons
+.btn-app {
+	position:absolute;
+	color:#fff;
+	text-align: center;
+	border-radius: 50%;
+	opacity: 0;
+	
+	.fa {
+		line-height:2.5em;
+	}
+
+	&:hover{
+		cursor: pointer;
+	}
+}
+
+.btn-app.btn-circle{
+	@include circle(2.5em);
+	background-color: $primary;
+}
+
+// add shadow only when templates are activated
+.btn-shadow {
+	box-shadow:4px 4px 2px 1px rgba(#000, 0.2);
+}
+
+// The most-popular apps in a circular thingo
+.menu-round {
+	position: absolute;
+	bottom:0;
+	right:0;
+	z-index:3;
+	
+	.btn-app {
+		bottom:0.35em;
+		right:0.25em;
+		transition:0.2s;
+	}
+	
+	// position of templates when activated
+	&.open {
+		.btn-app:nth-of-type(1){
+			right:0.5em;
+			bottom:4.25em;
+		}
+		.btn-app:nth-of-type(2){
+			right:3.5em;
+			bottom:3.5em;
+			transition-delay:0.1s;
+		}
+		.btn-app:nth-of-type(3){
+			right:4.25em;
+			bottom:0.5em;
+			transition-delay:0.2s;
+		}
+	}	
+
+}
+// stacked template icons
+.menu-line {
+	position: absolute;
+	z-index:2;
+	
+	.btn-app {
+		bottom:0.35em;
+		right:0.25em;
+		transition:0.2s;
+	}
+	
+	&.open {
+		// first one. add 3 to each subsequent template
+		$bottom:4.25em;
+		$templates:7;
+		
+		.btn-app:nth-of-type(1) {
+			bottom:$bottom;
+		}
+		
+		// align each template item on top of the next
+		@for $i from 1 through $templates {
+			.btn-app:nth-of-type(#{$i}) {
+				bottom:$bottom + 3 * $i;
+			}
+		}
+	}	
+}
+
+.category-filter{
+	display: none;
+
+	&:checked +.category-text{
+		display: inline !important;
+	}
+}
+
+.btn-app{
+	.category-text{
+		display: none;
+	}
+}
+
+.visible {
+	opacity: 1;
+}
+
+.hidden {
+	transition: max-height 1s ease-in, opacity 1s ease-out;
+	opacity: 0;
+	max-height: 0px;
+	margin: 0;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+  
+  .ftco-no-pt {
+	padding-top: 0; }
+  
+  .ftco-no-pb {
+	padding-bottom: 0; }
+  
+  .img {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center; }
+  
+  .ul.ks-cboxtags {
+	list-style: none;
+}
+	.ul.ks-cboxtags .li {
+	  display: inline; }
+	  .ul.ks-cboxtags .li label {
+		display: inline-block;
+		background-color: rgb(255, 255, 255);
+		border: 1px solid rgba(139, 139, 139, 0.3);
+		color: #adadad;
+		border-radius: 25px;
+		white-space: nowrap;
+		margin: 3px 0px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-transition: all .2s;
+		-o-transition: all .2s;
+		transition: all .2s;
+		font-weight: 400; }
+  
+  .ul.ks-cboxtags .li label {
+	padding: 8px 12px;
+	cursor: pointer; }
+	.ul.ks-cboxtags .li label::after {
+	  display: inline-block;
+	  font-style: normal;
+	  font-variant: normal;
+	  text-rendering: auto;
+	  -webkit-font-smoothing: antialiased;
+	  font-family: "FontAwesome";
+	  font-weight: 400;
+	  font-size: 12px;
+	  padding: 2px 6px 2px 2px;
+	  content: "\f067";
+	  -webkit-transition: -webkit-transform .3s ease-in-out;
+	  transition: -webkit-transform .3s ease-in-out;
+	  -o-transition: transform .3s ease-in-out;
+	  transition: transform .3s ease-in-out;
+	  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
+  
+  .ul.ks-cboxtags .li input[type="checkbox"]:checked + label::after {
+	content: "\f00c";
+	-webkit-transform: rotate(-360deg);
+	-ms-transform: rotate(-360deg);
+	transform: rotate(-360deg);
+	-webkit-transition: -webkit-transform .3s ease-in-out;
+	transition: -webkit-transform .3s ease-in-out;
+	-o-transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out;
+	transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out; }
+  
+  .ul.ks-cboxtags .li input[type="checkbox"]:checked + label {
+	-webkit-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s; }
+  
+  .ul.ks-cboxtags .li input[type="checkbox"] {
+	display: absolute; }
+  
+  .ul.ks-cboxtags .li input[type="checkbox"] {
+	position: absolute;
+	opacity: 0; }
+  
+	
+
+.ul.btn-cat1 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-7;
+}
+.ul.btn-cat1 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-7;
+	color: #ffffff;
+}
+.ul.btn-cat2 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-2;
+} 
+.ul.btn-cat2 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-2;
+	color: #ffffff;
+}
+.ul.btn-cat3 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-3;
+}
+.ul.btn-cat3 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-3;
+	color: #ffffff;
+}
+.ul.btn-cat4 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-4;
+}
+.ul.btn-cat4 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-4;
+	color: #ffffff;
+}
+.ul.btn-cat5 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-5;
+}
+.ul.btn-cat5 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-5;
+	color: #ffffff;
+}
+.ul.btn-cat6 .li input[type="checkbox"]:checked + label::after {
+	color: $accent-6;
+}
+.ul.btn-cat6 .li input[type="checkbox"] + label:hover{
+	background-color: $accent-6;
+	color: #ffffff;
+}
+
+.ul.btn-cat1 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+.ul.btn-cat2 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+.ul.btn-cat3 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+.ul.btn-cat4 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+.ul.btn-cat5 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+.ul.btn-cat6 .li input[type="checkbox"] + label:hover::after{
+	color: #ffffff;
+}
+
+.ul.btn-cat7 .li input[type="checkbox"]:checked + label {
+	text-decoration: underline;
+	text-decoration-color: $accent-7;
+	text-decoration-thickness: 0.18em;
+	text-decoration-skip-ink: none;
 }

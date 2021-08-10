@@ -4,13 +4,13 @@
     <meta charset="utf-8"/>
     <title>Siclopédia</title>
 
-    
     <script src="static/js/jquery-3.6.0.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="static/css/style.css">
     <script src="static/js/script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   </head>
   <body>
@@ -30,10 +30,78 @@
       </div>
     </header>
 
+    <div class="menu-container">
+      <div class="menu-toggle">
+        <span class="fa fa-filter"></span>
+      </div>
+      <div class="menu-round">
+        <div class="btn-app btn-circle btn-shadow">
+          <div class="fa fa-twitter"></div>
+        </div>
+        <div class="btn-app btn-circle btn-shadow">
+          <div class="fa fa-facebook" href="https://www.facebook.com/iago.rampazzo/"></div>
+        </div>
+        <div class="btn-app btn-circle btn-shadow">
+          <div class="fa fa- fa-wikipedia-w"></div>
+        </div>
+      </div>
+      <div class="menu-line">
+        <div class="btn-app">
+          <div class="ul ks-cboxtags btn-cat2">
+            <div class="li">
+              <input type="checkbox" id="cbPersonal" checked="True">
+              <label for="cbPersonal" class="btn-shadow">Pessoal</label>
+            </div>
+          </div>
+        </div>
+        <div class="btn-app">
+            <div class="ul ks-cboxtags btn-cat1">
+              <div class="li">
+                <input type="checkbox" id="cbFamily" checked="True">
+                <label for="cbFamily" class="btn-shadow">Família</label>
+              </div>
+            </div>
+        </div>
+        <div class="btn-app">
+          <div class="ul ks-cboxtags btn-cat3">
+            <div class="li">
+              <input type="checkbox" id="cbStudies" checked="True">
+              <label for="cbStudies" class="btn-shadow">Estudos</label>
+            </div>
+          </div>
+        </div>
+        <div class="btn-app">
+          <div class="ul ks-cboxtags btn-cat6">
+            <div class="li">
+              <input type="checkbox" id="cbMeme" checked="True">
+              <label for="cbMeme" class="btn-shadow">Meme</label>
+            </div>
+          </div>
+        </div>
+        <div class="btn-app">
+          <div class="ul ks-cboxtags btn-cat4">
+            <div class="li">
+              <input type="checkbox" id="cbSports" checked="True">
+              <label for="cbSports" class="btn-shadow">Esportes</label>
+            </div>
+          </div>
+        </div>
+        <div class="btn-app">
+          <div class="ul ks-cboxtags btn-cat5">
+            <div class="li">
+              <input type="checkbox" id="cbProfessional" checked="True">
+              <label for="cbProfessional" class="btn-shadow">Profissional</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <section class="timeline">
       <div class="container"> 
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInRight">
             <div class="timeline-img-container">
@@ -45,7 +113,7 @@
           </div>
         </div>   
 
-        <div class="timeline-item">
+        <div class="timeline-item sports">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -59,7 +127,7 @@
           </div>
         </div>   
 
-        <div class="timeline-item">
+        <div class="timeline-item family">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -72,7 +140,7 @@
           </div>
         </div>    
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -86,7 +154,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item meme">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -101,7 +169,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item meme">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -114,7 +182,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -126,7 +194,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item sports">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -142,7 +210,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -155,7 +223,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item family">
           <div class="timeline-img"></div>
           <div class="timeline-content js--fadeInLeft">
             <h2>Aná Lúcia</h2>
@@ -164,7 +232,7 @@
           </div>
         </div>   
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content js--fadeInLeft">
             <div class="date">2009</div>
@@ -176,7 +244,7 @@
           </div>
         </div>   
 
-        <div class="timeline-item">
+        <div class="timeline-item studies">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -190,7 +258,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -204,7 +272,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item studies">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -218,7 +286,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item studies">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -232,7 +300,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item meme">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -244,7 +312,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -258,7 +326,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -270,7 +338,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item studies">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -284,7 +352,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -297,7 +365,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item personal">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -311,7 +379,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -324,7 +392,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -338,7 +406,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item family">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
@@ -351,7 +419,7 @@
           </div>
         </div>
 
-        <div class="timeline-item">
+        <div class="timeline-item professional">
           <div class="timeline-img"></div>
           <div class="timeline-content timeline-card js--fadeInLeft">
             <div class="timeline-img-container">
