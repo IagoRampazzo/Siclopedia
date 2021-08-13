@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Patrick+Hand&family=Prompt:wght@400;600&family=Sarabun&family=Taviraj:wght@500&display=swap");
 section.timeline {
   padding: 3rem 0;
 }
@@ -11,6 +12,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   background-color: #e9f1f7ff;
+  overflow-y: hidden;
 }
 
 h1 {
@@ -32,8 +34,6 @@ header .container {
   max-width: 100% !important;
   padding: 0.6em;
   font-size: 1.5rem;
-  -webkit-transition: all .2s;
-  transition: all .2s;
   -webkit-box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
           box-shadow: 0 20px 25px -15px rgba(0, 0, 0, 0.3);
 }
@@ -41,11 +41,12 @@ header .container {
 header .profile-name {
   position: relative;
   letter-spacing: 2px;
-  font-size: 2.3em;
+  font-size: 2.2em;
+  font-family: 'Taviraj', serif;
 }
 
 header .born-date {
-  font-family: 'Allura';
+  font-family: 'Cabin', sans-serif;
   color: rgba(255, 255, 255, 0.2);
   position: relative;
   font-size: 2.3em;
@@ -62,6 +63,10 @@ header .header-title {
 }
 
 header .date-title {
+  text-align: right;
+}
+
+header .expand-icon {
   text-align: right;
 }
 
@@ -152,28 +157,102 @@ header .date-title {
   text-align: justify;
 }
 
+.timeline-content .card-text {
+  max-height: 0px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  -webkit-transition: max-height .3s ease-out;
+  transition: max-height .3s ease-out;
+}
+
+.timeline-content .expand-icon {
+  font-size: 2.5rem;
+  position: absolute;
+  bottom: 15px;
+  right: 25px;
+  -webkit-transition: -webkit-transform .3s ease-out;
+  transition: -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out;
+  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+}
+
+.timeline-content .expand {
+  cursor: pointer;
+}
+
+.timeline-content.expanded .timeline-img-container {
+  max-height: 30rem;
+  -webkit-transition: max-height .6s ease-in;
+  transition: max-height .6s ease-in;
+}
+
+.timeline-content.expanded .card-text {
+  max-height: 20rem;
+  overflow: hidden;
+  margin: 0;
+  padding: 20px;
+  opacity: 1;
+  -webkit-transition: max-height .6s ease-in, opacity .6s ease-in;
+  transition: max-height .6s ease-in, opacity .6s ease-in;
+}
+
+.timeline-content.expanded .expand-icon {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  -webkit-transition: -webkit-transform .3s ease-in;
+  transition: -webkit-transform .3s ease-in;
+  transition: transform .3s ease-in;
+  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
+}
+
 .personal .timeline-content, .personal .header-title {
   border-bottom: 5px solid #ff4365ff;
+}
+
+.personal .date {
+  background-color: #ff4365ff;
 }
 
 .studies .timeline-content, .studies .header-title {
   border-bottom: 5px solid #5dd39eff;
 }
 
+.studies .date {
+  background-color: #5dd39eff;
+}
+
 .sports .timeline-content, .sports .header-title {
   border-bottom: 5px solid #b4e1ff;
+}
+
+.sports .date {
+  background-color: #b4e1ff;
 }
 
 .professional .timeline-content, .professional .header-title {
   border-bottom: 5px solid #AF469A;
 }
 
+.professional .date {
+  background-color: #AF469A;
+}
+
 .meme .timeline-content, .meme .header-title {
   border-bottom: 5px solid #5f7fff;
 }
 
+.meme .date {
+  background-color: #5f7fff;
+}
+
 .family .timeline-content, .family .header-title {
   border-bottom: 5px solid #FFA560;
+}
+
+.family .date {
+  background-color: #FFA560;
 }
 
 .timeline-img {
@@ -209,11 +288,7 @@ a:hover, a:active, a:focus {
 }
 
 .timeline-card {
-  padding: 0 0 1em 0 !important;
-}
-
-.timeline-card p {
-  padding: 0 20px;
+  padding: 0 !important;
 }
 
 .timeline-card a {
@@ -243,11 +318,15 @@ a:hover, a:active, a:focus {
   position: relative;
   text-align: center;
   color: white;
-  margin-bottom: 20px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.4)));
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
   background-size: cover;
   display: inline-block;
+  max-height: 15rem;
+  overflow: hidden;
+  -webkit-transition: max-height .3s ease-out;
+  transition: max-height .3s ease-out;
+  margin-bottom: -7px;
 }
 
 .timeline-img-container::before {

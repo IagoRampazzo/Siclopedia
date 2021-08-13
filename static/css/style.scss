@@ -17,6 +17,8 @@ $accent-5: #AF469A;
 $accent-6: #5f7fff;
 $accent-7: #FFA560;
 
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Patrick+Hand&family=Prompt:wght@400;600&family=Sarabun&family=Taviraj:wght@500&display=swap');
+
 section.timeline {
   padding: 3rem 0;
 }
@@ -30,6 +32,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   background-color: $light-2-primary;
+  overflow-y: hidden;
 }
 
 h1 {
@@ -50,18 +53,19 @@ header {
 		max-width: 100% !important;
 		padding: 0.6em;
 		font-size: 1.5rem;
-		transition: all .2s;
 		box-shadow: 0 20px 25px -15px rgba(0, 0, 0, .3);
 	}
 
 	.profile-name{
 		position: relative;
 		letter-spacing: 2px;
-		font-size: 2.3em;
+		font-size: 2.2em;
+		font-family: 'Taviraj', serif;
+
 	}
 
 	.born-date {
-		font-family: 'Allura';
+		font-family: 'Cabin', sans-serif;
 		color: rgba(255, 255, 255, .2);
 		position: relative;
 		font-size: 2.3em;
@@ -77,6 +81,10 @@ header {
 	}
 
 	.date-title{
+		text-align: right;
+	}
+
+	.expand-icon {
 		text-align: right;
 	}
 }
@@ -168,26 +176,98 @@ header {
 		text-align: justify;
 	}
 
+	.card-text{
+		max-height: 0px;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+		opacity: 0;
+		transition: max-height .3s ease-out;
+	}
+
+	.expand-icon{
+		font-size: 2.5rem;
+		position: absolute;
+		bottom: 15px;
+		right: 25px;
+		transition: transform .3s ease-out;
+	}
+	.expand{
+		cursor: pointer;
+	}
+
+	&.expanded{
+		.timeline-img-container{
+			max-height: 30rem;
+			transition: max-height .6s ease-in;
+		}
+
+		.card-text{
+			max-height: 20rem;
+			overflow: hidden;
+			margin: 0;
+			padding: 20px;
+			opacity: 1;
+			transition: max-height .6s ease-in, opacity .6s ease-in;
+		}
+
+		.expand-icon{
+			transform: rotate(-180deg);
+			transition: transform .3s ease-in;
+		}
+	}
+
 }
 
-.personal .timeline-content, .personal .header-title{
-	border-bottom: 5px solid $accent-2;
+.personal {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-2;
+	}
+	.date{
+		background-color: $accent-2;
+	}
 }
-.studies .timeline-content, .studies .header-title{
-	border-bottom: 5px solid $accent-3;
+.studies {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-3;
+	}
+	.date{
+		background-color: $accent-3;
+	}
 }
-.sports .timeline-content, .sports .header-title{
-	border-bottom: 5px solid $accent-4;
+.sports {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-4;
+	}
+	.date{
+		background-color: $accent-4;
+	}
 }
-.professional .timeline-content, .professional .header-title{
-	border-bottom: 5px solid $accent-5;
+.professional {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-5;
+	}
+	.date{
+		background-color: $accent-5;
+	}
 }
-.meme .timeline-content, .meme .header-title{
-	border-bottom: 5px solid $accent-6;
+.meme {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-6;
+	}
+	.date{
+		background-color: $accent-6;
+	}
 }
-.family .timeline-content, .family .header-title{
-	border-bottom: 5px solid $accent-7;
+.family {
+	.timeline-content, .header-title{
+		border-bottom: 5px solid $accent-7;
+	}
+	.date{
+		background-color: $accent-7;
+	}
 }
+
 
 .timeline-img {
 	width: 30px;
@@ -222,10 +302,7 @@ a {
 }
 
 .timeline-card {
-	padding: 0 0 1em 0 !important;
-	p {
-		padding: 0 20px;
-	}
+	padding: 0 !important;
 	a {
 		margin-left: 20px;
 	}
@@ -256,10 +333,13 @@ a {
 	position: relative;
 	text-align: center;
 	color: white;
-	margin-bottom: 20px;
 	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, .4));
 	background-size: cover;
 	display: inline-block;
+	max-height: 15rem;
+	overflow: hidden;
+	transition: max-height .3s ease-out;
+	margin-bottom: -7px;
 
 	&::before{
 		content: '';
@@ -280,6 +360,7 @@ a {
 		bottom: 8px;
 		left: 16px;
 	}
+	
 }
 
 blockquote {
